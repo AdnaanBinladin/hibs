@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>HIBAH</title>
+    <style>
+        h1 {
+            font-family: Algerian;
+
+        }
+
+        #flowerContainer {
+            display: inline-block;
+            transform: scale(0); /* Start scale for animation */
+            animation: none; /* Default state without animation */
+        }
+
+        @keyframes bloom {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+        body{
+            background-color:lightpink;
+        }
+
+    </style>
+</head>
+<body>
+    <h1><center>Welcome Hibah</center></h1>
+    <!-- Canvas container where the animation will apply -->
+    <center>
+        <div id="flowerContainer">
+            <canvas id="flowerCanvas" width="200" height="200"></canvas>
+            <p1>Love you a lot bby</p1>
+        </div>
+    </center>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <center><button id="flowerhibs">Press me baby</button></center>
+
+
+
+    <!-- JavaScript code -->
+    <script>
+        // Event listener for the button click
+        document.getElementById("flowerhibs").addEventListener("click", function () {
+            drawFlower();  // Function to create the flower animation
+            // Apply bloom animation to the container when the flower is drawn
+            document.getElementById('flowerContainer').style.animation = 'bloom 2s ease-in-out forwards';
+        });
+
+        // Function to draw the flower
+        function drawFlower() {
+            let canvas = document.getElementById('flowerCanvas');
+            let ctx = canvas.getContext('2d');
+
+            // Clear previous drawing if any
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Drawing petal shapes and arranging them like a flower
+            ctx.fillStyle = "red";
+            for (let i = 0; i < 8; i++) {
+                ctx.beginPath();
+                ctx.ellipse(100, 100, 50, 20, i * Math.PI / 4, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Drawing flower center
+            ctx.beginPath();
+            ctx.arc(100, 100, 20, 0, Math.PI * 2, true);
+            ctx.fillStyle = "yellow";
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>
